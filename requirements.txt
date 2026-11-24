@@ -1,0 +1,4 @@
+pandas>=2.2
+requests>=2.31
+pypdf>=5.0
+docling==2.152.0

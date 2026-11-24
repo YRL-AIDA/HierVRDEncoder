@@ -9,8 +9,13 @@ from dotenv import load_dotenv
 import requests
 
 load_dotenv()
-TOPICS = {"en": "data/eng_topics.txt", "ru": "data/rus_topics.txt"}
-OUT = Path("data/pdfs")
+
+ROOT = Path(__file__).resolve().parents[2]
+TOPICS = {
+    "en": ROOT / "configs/topics/en_topics.txt",
+    "ru": ROOT / "configs/topics/ru_topics.txt",
+}
+OUT = ROOT / "data/raw/openalex/pdfs"
 PER_TOPIC = int(os.environ.get("PER_TOPIC", "5"))
 MAILTO = os.environ.get("OPENALEX_MAILTO", "anonymous@example.com")
 API_KEY = os.environ.get("API_KEY", "")
